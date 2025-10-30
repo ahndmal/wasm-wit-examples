@@ -19,7 +19,7 @@ WIT can be handled by:
 
 ## Cargo Component
 
-Install cargo-component:
+Install ```cargo-component```:
 
 ```bash
 cargo install --locked cargo-component
@@ -31,13 +31,30 @@ Install wasm-tools:
 cargo install --locked wasm-tools
 ```
 
-### Makefile
+### Bindings
 
-bind:
-    cargo component bindings
-build:
-    cargo component build
-run:
+Generate ```Bindings``` with CLI:
+
+```
+cargo component bindings
+```
+
+Use macro of wit-bindgen to generate bindings at compile-time:
+
+```rust
+// Use a procedural macro to generate bindings for the world we specified in
+// `host.wit`
+wit_bindgen::generate!({
+    // the name of the world in the `*.wit` input file
+    world: "host",
+});
+```
+
+Build:
+
+```
+cargo component build
+```
 
 ## WIT Bindgen
 
