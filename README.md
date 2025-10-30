@@ -62,11 +62,12 @@ Build
 cargo build --target wasm32-wasip2
 ```
 
+Run with WASMTIME:
+```
+wasmtime run --invoke 'hello-world()' ./target/wasm32-wasip1/debug/add.wasm
+```
 
-
-
-
-
-    wasmtime run --invoke 'hello-world()' ./target/wasm32-wasip1/debug/add.wasm
-show wasm file:
-  wasm-tools component wit target/wasm32-wasip1/release/add.wasm
+Show wasm file:
+```
+wasm-tools component wit target/wasm32-wasip1/release/add.wasm
+```
